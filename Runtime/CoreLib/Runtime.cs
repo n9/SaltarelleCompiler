@@ -672,16 +672,15 @@ namespace System.Runtime.Versioning {
 }
 
 namespace System.Threading {
-	[EditorBrowsable(EditorBrowsableState.Never)]
-	[NonScriptable]
 	public static class Interlocked {
-		public static int CompareExchange(ref int location1, int value, int comparand) {
-			return 0;
-		}
+        [InlineCode("++({location1}.$)")]
+        public static int Increment(ref int location1) { return 0; }
 
-		public static T CompareExchange<T>(ref T location1, T value, T comparand) where T : class {
-			return null;
-		}
+        [InlineCode("{location1}.$ === {comparand} ? {location1}.$ = {value} : {location1}.$")]
+        public static int CompareExchange(ref int location1, int value, int comparand) { return 0; }
+
+        [InlineCode("{location1}.$ === {comparand} ? {location1}.$ = {value} : {location1}.$")]
+		public static T CompareExchange<T>(ref T location1, T value, T comparand) where T : class { return null; }
 	}
 
 	[EditorBrowsable(EditorBrowsableState.Never)]
