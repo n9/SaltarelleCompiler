@@ -63,6 +63,9 @@ namespace CoreLib.Tests
 		}
 
 		public IEnumerable<TestCaseData> PerformTest() {
+            if (Environment.GetCommandLineArgs().Contains("/include:NoJsTests"))
+                return new TestCaseData[0];
+
 			string filename = Path.Combine(Environment.CurrentDirectory, Guid.NewGuid().ToString("N") + ".js");
 			try {
 				File.WriteAllText(filename, "(new " + TestClassName + @"()).runTests();");

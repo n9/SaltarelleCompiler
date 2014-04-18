@@ -7,6 +7,57 @@ using Saltarelle.Compiler.Tests;
 namespace CoreLib.Tests.MetadataImporterTests {
 	[TestFixture]
 	public class TypeTests : MetadataImporterTestBase {
+        [Test(Description="If test fails, IgnoreDuplicateMembersAttribute may no longer be needed.")]
+        public void IgnoreDuplicateMembersAttributeIsNeeded()
+        {
+            Prepare(
+@"namespace TestNamespace {
+
+public interface IY 
+{
+    int Value { get; set; }
+}
+
+public class X1
+{
+    public int Value { get; set; }
+}
+
+public class Y : X1, IY
+{
+
+}
+
+}", expectErrors: true);
+        }
+
+        [Test]
+        public void IgnoreDuplicateMembersAttributeWorks()
+        {
+            Prepare(
+@"using System.Runtime.CompilerServices
+
+namespace TestNamespace {
+
+public interface IY 
+{
+    int Value { get; set; }
+}
+
+[IgnoreDuplicateMembers]
+public class X2
+{
+    public int Value { get; set; }
+}
+
+public class Y : X2, IY
+{
+
+}
+
+}", expectErrors: false);
+        }
+
 		[Test]
 		public void TopLevelClassWithoutAttributesWorks() {
 			Prepare(
