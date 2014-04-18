@@ -1006,6 +1006,16 @@ namespace CoreLib.TestScript.Reflection {
 			Assert.AreEqual(Type.GetType("ss.Dictionary$2, NotLoaded.Assembly"), null, "#5");
 		}
 
+        [Test]
+        public void StaticGetTypeMethodWithSimpleGenericsWorks()
+        {
+            Action<Type> testType = t => Assert.AreEqual(Type.GetType(t.FullName), t, t.FullName);
+
+            testType(typeof(Dictionary<string, TypeSystemTests>));
+            testType(typeof(Dictionary<TypeSystemTests, string>));
+            testType(typeof(Dictionary<TypeSystemTests, TypeSystemTests>));
+        }
+
 		[NamedValues]
 		public enum NamedValuesEnum {
 			FirstValue,
