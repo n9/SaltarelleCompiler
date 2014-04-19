@@ -226,7 +226,7 @@ ss.getAssemblyType = function#? DEBUG ss$getAssemblyTypes##(asm, name) {
 
 	if (/^[^\[\]]+$/.test(genericArgNames)) 
 	    genericArgNames = genericArgNames.split(/, */);
-	else if (/^\[[^\[\]]+\](,\[[^\[\]]+\])+$/.exec(genericArgNames))
+	else if (/^\[[^\[\]]+\](,\[[^\[\]]+\])*$/.exec(genericArgNames))
 	    genericArgNames = genericArgNames.replace(/^\[|\]$/g, '').split(/\],\[/);
 	else
 	    return null; // TODO not supported
