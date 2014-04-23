@@ -58,6 +58,39 @@ public class Y : X2, IY
 }", expectErrors: false);
         }
 
+        [Test]
+        public void IgnoreDuplicateMembersAttributeWithGenericsWorks()
+        {
+            Prepare(
+@"using System.Runtime.CompilerServices;
+
+namespace TestNamespace {
+
+public interface IA
+{
+    string P { get; }
+}
+
+[IgnoreDuplicateMembers]
+public abstract class A1 : IA
+{ 
+    public abstract string P { get; protected set; }
+}
+
+public class public class A2 : A1
+{ 
+    public override string P { get; protected set; }
+}
+
+public class A3 : A2 { }
+
+public abstract class A4 : A3, IA { }
+
+public class A5 : A4 { }
+
+}", expectErrors: false);
+        }
+
 		[Test]
 		public void TopLevelClassWithoutAttributesWorks() {
 			Prepare(
