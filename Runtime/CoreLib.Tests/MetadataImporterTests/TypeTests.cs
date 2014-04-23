@@ -35,7 +35,7 @@ public class Y : X1, IY
         public void IgnoreDuplicateMembersAttributeWorks()
         {
             Prepare(
-@"using System.Runtime.CompilerServices
+@"using System.Runtime.CompilerServices;
 
 namespace TestNamespace {
 
