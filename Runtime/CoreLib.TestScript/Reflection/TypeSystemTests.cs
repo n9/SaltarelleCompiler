@@ -1011,6 +1011,10 @@ namespace CoreLib.TestScript.Reflection {
         {
             Action<Type> testType = t => Assert.AreEqual(Type.GetType(t.FullName), t, t.FullName);
 
+            testType(typeof(int?));
+
+            testType(typeof(Dictionary<int, string>));
+            testType(typeof(Dictionary<string, int>));
             testType(typeof(Dictionary<string, TypeSystemTests>));
             testType(typeof(Dictionary<TypeSystemTests, string>));
             testType(typeof(Dictionary<TypeSystemTests, TypeSystemTests>));
