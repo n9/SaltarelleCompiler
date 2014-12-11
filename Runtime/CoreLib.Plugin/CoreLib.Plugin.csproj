@@ -62,6 +62,7 @@
     </Compile>
     <Compile Include="CustomPropertyModelProcessor.cs" />
     <Compile Include="DefaultMemberReflectabilityAttribute.cs" />
+    <Compile Include="InheritDefaultMemberReflectability.cs" />
     <Compile Include="Linker.cs" />
     <Compile Include="MakeMembersWithScriptableAttributesReflectable.cs" />
     <Compile Include="MemberOrderer.cs" />
