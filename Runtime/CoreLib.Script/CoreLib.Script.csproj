@@ -23,6 +23,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="Comparer.js" />
+    <Content Include="CancellationTokenSource.js" />
+    <Content Include="CancellationToken.js" />
+    <Content Include="CancellationTokenRegistration.js" />
+    <Content Include="OperationCanceledException.js" />
     <Content Include="NotImplementedException.js" />
     <Content Include="DivideByZeroException.js" />
     <Content Include="RegExp.js" />
