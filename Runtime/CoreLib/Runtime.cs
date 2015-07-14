@@ -744,6 +744,14 @@ namespace System.Threading {
 
         [InlineCode("{location1}.$ === {comparand} ? {location1}.$ = {value} : {location1}.$")]
 		public static T CompareExchange<T>(ref T location1, T value, T comparand) where T : class { return null; }
+
+        public static T Exchange<T>(ref T location1, T value) 
+            where T : class
+        {
+            var r = location1;
+            location1 = value;
+            return r;
+        }
 	}
 
 	[EditorBrowsable(EditorBrowsableState.Never)]
