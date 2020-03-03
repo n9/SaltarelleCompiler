@@ -16,7 +16,17 @@ namespace System.Collections.Generic {
 	[IncludeGenericArguments(false)]
 	public sealed class Stack<T> {
 
-		[IntrinsicProperty]
+        [InlineCode("[]")]
+        public Stack()
+        {
+        }
+
+        [InlineCode("[]")]
+        public Stack(int capacity)
+        {
+        }
+
+        [IntrinsicProperty]
 		[ScriptName("length")]
 		public int Count {
 			get {
