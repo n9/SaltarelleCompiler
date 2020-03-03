@@ -5,7 +5,7 @@ properties {
 	$buildtoolsDir = Resolve-Path "."
 	$outDir = "$(Resolve-Path "".."")\bin"
 	$configuration = "Debug"
-	$releaseTagPattern = "release-(.*)"
+	$releaseTagPattern = "refs/tags/release-(.*)"
 	$skipTests = $false
 	$noAsync = $false
 	$autoVersion = $true
