@@ -68,6 +68,28 @@ namespace System.Threading.Tasks {
 			return null;
 		}
 
+		[IncludeGenericArguments(false)]
+		public static Task<TResult> FromCanceled<TResult>(CancellationToken cancellationToken)
+		{
+			return null;
+		}
+
+		public static Task FromCanceled(CancellationToken cancellationToken)
+		{
+			return null;
+		}
+
+		[IncludeGenericArguments(false)]
+		public static Task<TResult> FromException<TResult>(Exception exception)
+		{
+			return null;
+		}
+
+		public static Task FromException(Exception exception)
+		{
+			return null;
+		}
+
 		public static Task Run(Action action) {
 			return null;
 		}
