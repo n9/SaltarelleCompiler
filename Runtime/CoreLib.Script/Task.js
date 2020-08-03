@@ -252,15 +252,15 @@ ss.initClass(ss_Task, ss, {
 	isFaulted: function#? DEBUG Task$isFaulted##() {
 		return this.status === 7;
 	},
-	_getResult: function#? DEBUG Task$_getResult##(await) {
+	_getResult: function#? DEBUG Task$_getResult##(_await) {
 		switch (this.status) {
 			case 5:
 				return this._result;
 			case 6:
 				var ex = new ss_TaskCanceledException(null, this);
-				throw await ? ex : new ss_AggregateException(null, [ex]);
+				throw _await ? ex : new ss_AggregateException(null, [ex]);
 			case 7:
-				throw await ? this.exception.innerExceptions[0] : this.exception;
+				throw _await ? this.exception.innerExceptions[0] : this.exception;
 			default:
 				throw new ss_InvalidOperationException('Task is not yet completed.');
 		}
