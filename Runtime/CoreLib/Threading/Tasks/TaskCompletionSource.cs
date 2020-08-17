@@ -17,6 +17,9 @@ namespace System.Threading.Tasks {
 
 		public void SetCanceled() {
 		}
+		public void SetCanceled(CancellationToken cancellationToken)
+		{
+		}
 
 		public void SetException(IEnumerable<Exception> exceptions) {
 		}
@@ -28,6 +31,10 @@ namespace System.Threading.Tasks {
 		}
 
 		public bool TrySetCanceled() {
+			return false;
+		}
+		public bool TrySetCanceled(CancellationToken cancellationToken)
+		{
 			return false;
 		}
 
